@@ -1,5 +1,6 @@
 <?php 
 session_start();
+include 'koneksi.php';
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -299,9 +300,19 @@ session_start();
               <div class="card card-hover">
                 <div class="box bg-cyan text-center">
                   <h1 class="font-light text-white">
-                  <i class="fas fa-fw fa-cog"></i>
+                  <i class="mdi mdi-comment-text-outline"></i>
                     <a class="small text-white stretched-link" href="data_work.php">Data Perintah Kerja</a>
                   </h1>
+                   <h2 class="font-light text-white" href="data_work.php">
+                     <?php
+                  // mengambil data work_order
+                  $data_work_order = mysqli_query($conn,"SELECT * FROM work_order");
+
+                  // menghitung data work_order
+                  $jumlah_work_order= mysqli_num_rows($data_work_order);
+                  echo $jumlah_work_order; 
+                   ?>
+                  </h2>
                   <h6 class="text-white">View Details</h6>
                 </div>
               </div>
@@ -311,9 +322,19 @@ session_start();
               <div class="card card-hover">
                 <div class="box bg-success text-center">
                   <h1 class="font-light text-white">
-                  <i class="fas fa-fw fa-wrench"></i>
+                   <i class="mdi mdi-tooltip-edit"></i>
                     <a class="small text-white stretched-link" href="data_cat_kerja.php">Data Umpan Balik</a>
                   </h1>
+                   <h2 class="font-light text-white" href="data_cat_kerja.php">
+                     <?php
+                  // mengambil data cat_kerja
+                  $data_cat_kerja = mysqli_query($conn,"SELECT * FROM cat_kerja");
+
+                  // menghitung data cat_kerja
+                  $jumlah_cat_kerja= mysqli_num_rows($data_cat_kerja);
+                  echo $jumlah_cat_kerja; 
+                   ?>
+                  </h2>
                   <h6 class="text-white">View Details</h6>
                 </div>
               </div>
